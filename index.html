@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)file:///C:/Users/BASMA%20TRABELSSI/Downloads/online_viewer_net%20(4).htm -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مغامرة الجملة الفعلية</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#4361ee;
+    --purple:#7209b7;
+    --pink:#f72585;
+    --green:#06a77d;
+    --orange:#f59e0b;
+    --yellow:#ffd166;
+    --dark:#253047;
+    --muted:#667085;
+    --light:#f5f7ff;
+    --white:#ffffff;
+    --shadow:0 14px 35px rgba(60,70,140,.14);
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:"Tahoma","Arial",sans-serif;
+    color:var(--dark);
+    background:
+        radial-gradient(circle at 10% 5%,#dff4ff 0,transparent 25%),
+        radial-gradient(circle at 95% 8%,#ffe4f2 0,transparent 25%),
+        linear-gradient(135deg,#f7f9ff,#edf2ff);
+}
+
+button{
+    font-family:inherit;
+}
+
+.app{
+    width:min(1100px,94%);
+    margin:auto;
+    padding:18px 0 45px;
+}
+
+/* TOP BAR */
+
+.topbar{
+    background:rgba(255,255,255,.95);
+    border-radius:25px;
+    padding:13px 18px;
+    box-shadow:var(--shadow);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--purple);
+    font-size:20px;
+    font-weight:900;
+}
+
+.logo{
+    width:47px;
+    height:47px;
+    border-radius:15px;
+    display:grid;
+    place-items:center;
+    color:white;
+    font-size:25px;
+    background:linear-gradient(135deg,var(--primary),var(--purple));
+}
+
+.stats{
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.stat{
+    background:#f1f3ff;
+    border-radius:14px;
+    padding:9px 14px;
+    font-weight:900;
+}
+
+.progress-wrap{
+    height:12px;
+    border-radius:20px;
+    background:#e4e7f2;
+    overflow:hidden;
+    margin-bottom:18px;
+}
+
+.progress{
+    height:100%;
+    width:0;
+    background:linear-gradient(90deg,#06b6d4,#4361ee,#7209b7,#f72585);
+    transition:.5s;
+}
+
+/* SCREENS */
+
+.screen{
+    display:none;
+    animation:appear .45s ease;
+}
+
+.screen.active{
+    display:block;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* HOME */
+
+.hero{
+    min-height:570px;
+    border-radius:35px;
+    overflow:hidden;
+    background:white;
+    box-shadow:var(--shadow);
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+}
+
+.hero-text{
+    padding:55px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.tag{
+    width:max-content;
+    background:#eeeaff;
+    color:var(--purple);
+    padding:9px 16px;
+    border-radius:40px;
+    font-weight:900;
+    margin-bottom:15px;
+}
+
+h1{
+    margin:0 0 18px;
+    color:var(--purple);
+    font-size:clamp(38px,6vw,65px);
+    line-height:1.15;
+}
+
+.hero-text p{
+    font-size:20px;
+    line-height:2;
+}
+
+.hero-art{
+    position:relative;
+    overflow:hidden;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(145deg,#4361ee,#7209b7);
+}
+
+.hero-art:before,
+.hero-art:after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.1);
+}
+
+.hero-art:before{
+    width:360px;
+    height:360px;
+    right:-110px;
+    top:-120px;
+}
+
+.hero-art:after{
+    width:270px;
+    height:270px;
+    left:-90px;
+    bottom:-100px;
+}
+
+.sentence-art{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:white;
+}
+
+.character{
+    font-size:125px;
+    animation:float 3s ease-in-out infinite;
+}
+
+.art-word{
+    font-size:28px;
+    font-weight:900;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+/* BUTTONS */
+
+.btn{
+    border:0;
+    cursor:pointer;
+    border-radius:17px;
+    padding:14px 25px;
+    font-size:18px;
+    font-weight:900;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 22px rgba(67,97,238,.2);
+}
+
+.primary{
+    color:white;
+    background:linear-gradient(135deg,var(--primary),var(--purple));
+}
+
+.green{
+    color:white;
+    background:var(--green);
+}
+
+.orange{
+    color:white;
+    background:var(--orange);
+}
+
+.actions{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+/* CARD */
+
+.card{
+    background:white;
+    border-radius:30px;
+    padding:30px;
+    box-shadow:var(--shadow);
+}
+
+.title{
+    text-align:center;
+    color:var(--purple);
+    font-size:32px;
+    margin:5px 0 25px;
+}
+
+/* DISCOVERY */
+
+.rule-main{
+    padding:25px;
+    text-align:center;
+    border-radius:25px;
+    background:linear-gradient(135deg,#efedff,#faf9ff);
+    border:3px solid #ddd6fe;
+}
+
+.rule-main strong{
+    color:var(--purple);
+    font-size:25px;
+}
+
+.rule-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+    margin-top:22px;
+}
+
+.rule{
+    border-radius:22px;
+    padding:22px;
+    background:#fafbff;
+    border:2px solid #e7eaf3;
+    text-align:center;
+}
+
+.rule-icon{
+    font-size:48px;
+}
+
+.rule h3{
+    color:var(--primary);
+    margin:8px 0;
+}
+
+.example{
+    font-size:27px;
+    font-weight:900;
+}
+
+.tip{
+    margin-top:20px;
+    padding:18px;
+    border-radius:17px;
+    background:#fff8e7;
+    border-right:6px solid var(--orange);
+    line-height:2;
+    font-size:18px;
+}
+
+/* QUESTIONS */
+
+.question-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.badge{
+    background:#e9edff;
+    color:var(--primary);
+    border-radius:30px;
+    padding:8px 15px;
+    font-weight:900;
+}
+
+.question{
+    text-align:center;
+    font-size:30px;
+    font-weight:900;
+    line-height:1.9;
+    margin:25px 0;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.option{
+    background:white;
+    border:3px solid #e5e8f1;
+    border-radius:20px;
+    padding:18px;
+    font-size:24px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option:hover{
+    border-color:var(--primary);
+    transform:translateY(-2px);
+}
+
+.option.correct{
+    border-color:var(--green);
+    background:#e9fff8;
+}
+
+.option.wrong{
+    border-color:var(--orange);
+    background:#fff6e5;
+}
+
+.feedback{
+    display:none;
+    margin-top:20px;
+    padding:18px;
+    border-radius:18px;
+    line-height:2;
+    font-weight:700;
+}
+
+.feedback.show{
+    display:block;
+}
+
+.feedback.good{
+    color:#08785c;
+    background:#eafff7;
+    border-right:6px solid var(--green);
+}
+
+.feedback.hint{
+    color:#8a5900;
+    background:#fff8e8;
+    border-right:6px solid var(--orange);
+}
+
+/* DRAG */
+
+.drag-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.word-bank{
+    min-height:220px;
+    padding:18px;
+    border-radius:22px;
+    background:#f7f8ff;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-content:flex-start;
+}
+
+.drag-word{
+    background:white;
+    border:2px solid #dfe3ef;
+    border-radius:15px;
+    padding:12px 18px;
+    font-size:23px;
+    font-weight:900;
+    cursor:grab;
+    box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+
+.dropzones{
+    display:grid;
+    gap:14px;
+}
+
+.dropzone{
+    min-height:85px;
+    padding:14px;
+    border:3px dashed #cbd2e4;
+    border-radius:20px;
+    background:#fafbff;
+}
+
+.dropzone.over{
+    border-color:var(--primary);
+    background:#eef1ff;
+}
+
+.dropzone-title{
+    font-weight:900;
+    color:var(--purple);
+    margin-bottom:7px;
+}
+
+/* ASSOCIATION */
+
+.association{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.assoc-list{
+    display:grid;
+    gap:12px;
+}
+
+.assoc{
+    border:3px solid #e7e9f1;
+    border-radius:18px;
+    background:#fafbff;
+    padding:17px;
+    font-size:21px;
+    font-weight:900;
+    text-align:center;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.assoc.selected{
+    background:#edf1ff;
+    border-color:var(--primary);
+}
+
+.assoc.done{
+    background:#eafff7;
+    border-color:var(--green);
+    cursor:default;
+}
+
+/* FIND SUBJECT */
+
+.word-analysis{
+    text-align:center;
+    margin:25px 0;
+}
+
+.analysis-sentence{
+    font-size:36px;
+    font-weight:900;
+    color:var(--purple);
+    margin:20px;
+}
+
+.word-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.word-button{
+    border:3px solid #e3e6ef;
+    background:white;
+    border-radius:17px;
+    padding:14px 22px;
+    font-size:25px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.word-button:hover{
+    border-color:var(--primary);
+}
+
+.word-button.selected{
+    border-color:var(--green);
+    background:#eafff7;
+}
+
+/* MISSION */
+
+.mission-intro{
+    text-align:center;
+    font-size:19px;
+    line-height:2;
+}
+
+.mission-box{
+    max-width:800px;
+    margin:25px auto;
+    padding:25px;
+    border-radius:25px;
+    background:#f8f9ff;
+    text-align:center;
+}
+
+.mission-sentence{
+    font-size:34px;
+    font-weight:900;
+    color:var(--purple);
+    margin-bottom:25px;
+}
+
+.role-options{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.role{
+    padding:16px 25px;
+    border-radius:18px;
+    border:3px solid #e2e5ef;
+    background:white;
+    font-size:22px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.role:hover{
+    border-color:var(--primary);
+    transform:translateY(-2px);
+}
+
+/* FINAL */
+
+.final{
+    text-align:center;
+    padding:55px 25px;
+}
+
+.trophy{
+    font-size:100px;
+    animation:float 2.5s ease-in-out infinite;
+}
+
+.final-score{
+    color:var(--purple);
+    font-size:65px;
+    font-weight:900;
+}
+
+.stars{
+    font-size:42px;
+    margin:15px;
+}
+
+.award{
+    max-width:650px;
+    margin:25px auto;
+    padding:25px;
+    border:3px dashed #f2c94c;
+    border-radius:25px;
+    background:#fffbea;
+    line-height:2;
+}
+
+/* CONFETTI */
+
+.confetti{
+    position:fixed;
+    top:-20px;
+    z-index:100;
+    animation:fall 2.5s linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:760px){
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .hero-text{
+        padding:35px 25px;
+    }
+
+    .hero-art{
+        min-height:270px;
+    }
+
+    .rule-grid,
+    .options,
+    .drag-grid,
+    .association{
+        grid-template-columns:1fr;
+    }
+
+    .topbar{
+        flex-direction:column;
+    }
+
+    .question{
+        font-size:25px;
+    }
+
+    .analysis-sentence,
+    .mission-sentence{
+        font-size:28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- TOP BAR -->
+
+<header class="topbar">
+
+    <div class="brand">
+        <div class="logo">ف</div>
+        <div>مغامرة الجملة الفعلية</div>
+    </div>
+
+    <div class="stats">
+        <div class="stat">⭐ النقاط: <span id="score">0</span></div>
+        <div class="stat">🏅 النجوم: <span id="stars">0</span></div>
+    </div>
+
+</header>
+
+<div class="progress-wrap">
+    <div class="progress" id="progress"></div>
+</div>
+
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<section class="screen active" id="home">
+
+<div class="hero">
+
+    <div class="hero-text">
+
+        <span class="tag">🎓 السنة الرابعة — 9 سنوات</span>
+
+        <h1>مغامرة الجملة الفعلية</h1>
+
+        <p>
+            هل تستطيع أن تكتشف الجملة الفعلية؟
+            تعرّف إلى الفعل والفاعل،
+            ثم خض التحديات واكتشف من قام بالفعل!
+        </p>
+
+        <div class="actions" style="justify-content:flex-start">
+
+            <button class="btn primary" onclick="startLesson()">
+                🚀 ابدأ المغامرة
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-art">
+
+        <div class="sentence-art">
+
+            <div class="character">🏃</div>
+
+            <div class="art-word">
+                كَتَبَ التِّلْمِيذُ
+            </div>
+
+            <div style="margin-top:10px">
+                فعل + فاعل
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DISCOVERY
+===================================================== -->
+
+<section class="screen" id="lesson">
+
+<div class="card">
+
+<h2 class="title">🔎 المرحلة الأولى: اكتشف</h2>
+
+<div class="rule-main">
+
+<strong>
+الجُمْلَةُ الْفِعْلِيَّةُ جُمْلَةٌ تَبْدَأُ بِفِعْلٍ.
+</strong>
+
+<p style="font-size:20px;line-height:2">
+وغالبًا تتكوّن في صورتها البسيطة من:
+<br>
+<strong>فِعْلٍ + فَاعِلٍ</strong>
+</p>
+
+</div>
+
+
+<div class="rule-grid">
+
+<div class="rule">
+
+<div class="rule-icon">🏃</div>
+
+<h3>الفعل</h3>
+
+<p>
+يدلّ على حدث أو عمل.
+</p>
+
+<div class="example">
+كَتَبَ
+</div>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">👦</div>
+
+<h3>الفاعل</h3>
+
+<p>
+هو الذي قام بالفعل.
+</p>
+
+<div class="example">
+التِّلْمِيذُ
+</div>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">🌳</div>
+
+<h3>مثال</h3>
+
+<p>
+مَن قام بالجلوس؟
+</p>
+
+<div class="example">
+جَلَسَ التِّلْمِيذُ.
+</div>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">🏠</div>
+
+<h3>مثال آخر</h3>
+
+<p>
+مَن فتح الباب؟
+</p>
+
+<div class="example">
+فَتَحَ أَحْمَدُ البابَ.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="tip">
+
+💡 <strong>تذكّر:</strong>
+
+إذا بدأت الجملة بفعل، فهي جملة فعلية.
+ولمعرفة الفاعل اسأل:
+
+<strong>مَن الذي قام بالفعل؟</strong>
+
+<br><br>
+
+مثال:
+<strong>قَرَأَ التِّلْمِيذُ القِصَّةَ.</strong>
+
+الفعل: <strong>قَرَأَ</strong>
+<br>
+الفاعل: <strong>التِّلْمِيذُ</strong>
+
+</div>
+
+
+<div class="actions">
+
+<button class="btn primary" onclick="startTraining()">
+🎯 فهمت! لنبدأ التدريب
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     QCM
+===================================================== -->
+
+<section class="screen" id="training">
+
+<div class="card">
+
+<div class="question-head">
+
+<span class="badge">🎯 تدريب</span>
+
+<span>
+السؤال <span id="qNumber">1</span> / 6
+</span>
+
+</div>
+
+<div class="question" id="questionText"></div>
+
+<div class="options" id="options"></div>
+
+<div class="feedback" id="feedback"></div>
+
+<div class="actions">
+
+<button class="btn primary" id="nextQuestion" style="display:none" onclick="nextQuestion()">
+
+التالي ➜
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DRAG
+===================================================== -->
+
+<section class="screen" id="drag">
+
+<div class="card">
+
+<h2 class="title">🧩 المرحلة الثالثة: صنّف الجمل</h2>
+
+<p style="text-align:center;font-size:19px;line-height:2">
+
+اسحب كل جملة إلى المكان المناسب:
+<strong>جملة فعلية</strong> أو <strong>جملة اسمية</strong>.
+
+</p>
+
+<div class="drag-grid">
+
+<div>
+
+<h3>📦 الجمل</h3>
+
+<div class="word-bank" id="sentenceBank"></div>
+
+</div>
+
+
+<div>
+
+<h3>🎯 التصنيف</h3>
+
+<div class="dropzones">
+
+<div class="dropzone" data-type="verbal" ondragover="allowDrop(event)" ondrop="dropSentence(event)">
+
+<div class="dropzone-title">
+🏃 جملة فعلية
+</div>
+
+تبدأ بفعل.
+
+</div>
+
+
+<div class="dropzone" data-type="nominal" ondragover="allowDrop(event)" ondrop="dropSentence(event)">
+
+<div class="dropzone-title">
+🏠 جملة اسمية
+</div>
+
+تبدأ باسم.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="feedback" id="dragFeedback"></div>
+
+<div class="actions">
+
+<button class="btn green" onclick="checkDrag()">
+✅ تحقّق من التصنيف
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ASSOCIATION
+===================================================== -->
+
+<section class="screen" id="association">
+
+<div class="card">
+
+<h2 class="title">🔗 المرحلة الرابعة: اكتشف الفاعل</h2>
+
+<p style="text-align:center;font-size:19px;line-height:2">
+
+اضغط على الفعل، ثم اختر من قام بهذا الفعل.
+
+</p>
+
+
+<div class="association">
+
+<div class="assoc-list" id="verbs">
+
+<div class="assoc" data-id="1" onclick="selectVerb(this)">
+كَتَبَ
+</div>
+
+<div class="assoc" data-id="2" onclick="selectVerb(this)">
+زَرَعَ
+</div>
+
+<div class="assoc" data-id="3" onclick="selectVerb(this)">
+رَسَمَ
+</div>
+
+<div class="assoc" data-id="4" onclick="selectVerb(this)">
+لَعِبَ
+</div>
+
+</div>
+
+
+<div class="assoc-list" id="subjects">
+
+<div class="assoc" data-id="3" onclick="selectSubject(this)">
+التِّلْمِيذُ
+</div>
+
+<div class="assoc" data-id="1" onclick="selectSubject(this)">
+الطَّالِبَةُ
+</div>
+
+<div class="assoc" data-id="4" onclick="selectSubject(this)">
+الأَطْفَالُ
+</div>
+
+<div class="assoc" data-id="2" onclick="selectSubject(this)">
+الفَلَّاحُ
+</div>
+
+</div>
+
+</div>
+
+
+<div class="feedback" id="associationFeedback"></div>
+
+
+<div class="actions">
+
+<button class="btn primary" onclick="checkAssociation()">
+🔍 تحقّق
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FIND THE SUBJECT
+===================================================== -->
+
+<section class="screen" id="findSubject">
+
+<div class="card">
+
+<h2 class="title">🕵️ المرحلة الخامسة: من قام بالفعل؟</h2>
+
+<p style="text-align:center;font-size:19px;line-height:2">
+
+اقرأ الجملة، ثم اضغط على الكلمة التي تمثّل <strong>الفاعل</strong>.
+
+</p>
+
+<div id="subjectQuestion"></div>
+
+<div class="feedback" id="subjectFeedback"></div>
+
+<div class="actions">
+
+<button class="btn primary" id="nextSubject" style="display:none" onclick="nextSubjectQuestion()">
+
+التالي ➜
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL MISSION
+===================================================== -->
+
+<section class="screen" id="mission">
+
+<div class="card">
+
+<h2 class="title">🏆 المهمة النهائية</h2>
+
+<p class="mission-intro">
+
+لقد أصبحت مستعدًّا للمهمة الكبرى!
+<br>
+حدّد نوع الجملة، ثم اكتشف الفاعل.
+
+</p>
+
+<div id="missionArea"></div>
+
+<div class="feedback" id="missionFeedback"></div>
+
+<div class="actions">
+
+<button class="btn primary" id="nextMission" style="display:none" onclick="nextMission()">
+
+المهمة التالية ➜
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL
+===================================================== -->
+
+<section class="screen" id="final">
+
+<div class="card final">
+
+<div class="trophy">🏆</div>
+
+<h2 class="title">
+مبروك! لقد أصبحت خبير الجملة الفعلية 🎉
+</h2>
+
+<div class="final-score" id="finalScore">0</div>
+
+<div>نقطة</div>
+
+<div class="stars" id="finalStars">
+⭐⭐⭐
+</div>
+
+<div class="award">
+
+<strong>🌟 وسام خبير الجملة الفعلية 🌟</strong>
+
+<br><br>
+
+لقد استطعت أن:
+
+<br>
+
+✔ تميّز الجملة الفعلية من الجملة الاسمية.<br>
+✔ تتعرّف إلى الفعل.<br>
+✔ تحدّد الفاعل.<br>
+✔ تجيب عن السؤال: <strong>مَن قام بالفعل؟</strong>
+
+<br><br>
+
+أحسنت! واصل التدريب وكن دائمًا مستكشفًا للغة العربية. 🌈
+
+</div>
+
+<div class="actions">
+
+<button class="btn primary" onclick="restartGame()">
+🔄 العب من جديد
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   GAME STATE
+===================================================== */
+
+let score=0;
+let stars=0;
+let currentQuestion=0;
+let currentSubject=0;
+let currentMission=0;
+
+function updateStats(){
+
+    document.getElementById("score").textContent=score;
+    document.getElementById("stars").textContent=stars;
+
+}
+
+function addScore(n){
+
+    score+=n;
+    updateStats();
+
+}
+
+function addStar(){
+
+    stars++;
+    updateStats();
+
+}
+
+function progress(n){
+
+    document.getElementById("progress").style.width=n+"%";
+
+}
+
+function show(id){
+
+    document.querySelectorAll(".screen").forEach(s=>{
+        s.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   DISCOVERY
+===================================================== */
+
+function startLesson(){
+
+    show("lesson");
+    progress(12);
+
+}
+
+
+/* =====================================================
+   QCM
+===================================================== */
+
+const questions=[
+
+{
+    text:"أيّ جملة من الجمل الآتية جملة فعلية؟",
+    options:[
+        "السماءُ صافيةٌ.",
+        "الطفلُ نشيطٌ.",
+        "رَكِبَ سامي الحافلةَ.",
+        "الحديقةُ جميلةٌ."
+    ],
+    correct:2,
+    explanation:
+    "رَكِبَ سامي الحافلةَ جملة فعلية لأنها بدأت بالفعل «رَكِبَ»."
+},
+
+{
+    text:"ما الفعل في الجملة: «كَتَبَ التِّلْمِيذُ الدرسَ»؟",
+    options:[
+        "كَتَبَ",
+        "التِّلْمِيذُ",
+        "الدرسَ",
+        "التِّلْمِيذُ الدرسَ"
+    ],
+    correct:0,
+    explanation:
+    "«كَتَبَ» فعل لأنه يدل على حدث قام به التلميذ."
+},
+
+{
+    text:"مَن قام بالفعل في: «زَرَعَ الفَلَّاحُ الشَّجَرَةَ»؟",
+    options:[
+        "زَرَعَ",
+        "الفَلَّاحُ",
+        "الشَّجَرَةَ",
+        "زَرَعَ الشَّجَرَةَ"
+    ],
+    correct:1,
+    explanation:
+    "الفلاح هو الذي قام بالزراعة، لذلك فهو الفاعل."
+},
+
+{
+    text:"أيّ جملة تبدأ بفعل؟",
+    options:[
+        "العصفورُ جميلٌ.",
+        "الحديقةُ واسعةٌ.",
+        "غَرَدَ العصفورُ.",
+        "الطفلةُ سعيدةٌ."
+    ],
+    correct:2,
+    explanation:
+    "«غَرَدَ العصفورُ» بدأت بالفعل «غَرَدَ»، فهي جملة فعلية."
+},
+
+{
+    text:"ما الفاعل في: «رَسَمَتْ مريمُ زهرةً»؟",
+    options:[
+        "رَسَمَتْ",
+        "مريمُ",
+        "زهرةً",
+        "رَسَمَتْ زهرةً"
+    ],
+    correct:1,
+    explanation:
+    "نسأل: مَن رسم؟ الجواب: مريمُ، إذن مريمُ هي الفاعل."
+},
+
+{
+    text:"اختر الجملة الفعلية:",
+    options:[
+        "الولدُ سعيدٌ.",
+        "الطائرُ فوقَ الشجرةِ.",
+        "لَعِبَ الأطفالُ في الحديقةِ.",
+        "البيتُ واسعٌ."
+    ],
+    correct:2,
+    explanation:
+    "الجملة «لَعِبَ الأطفالُ في الحديقةِ» بدأت بالفعل «لَعِبَ»، فهي جملة فعلية."
+}
+
+];
+
+
+function startTraining(){
+
+    currentQuestion=0;
+
+    show("training");
+
+    progress(25);
+
+    renderQuestion();
+
+}
+
+
+function renderQuestion(){
+
+    const q=questions[currentQuestion];
+
+    document.getElementById("qNumber").textContent=
+        currentQuestion+1;
+
+    document.getElementById("questionText").textContent=
+        q.text;
+
+    const options=document.getElementById("options");
+
+    options.innerHTML="";
+
+    const feedback=document.getElementById("feedback");
+
+    feedback.className="feedback";
+
+    feedback.innerHTML="";
+
+    document.getElementById("nextQuestion").style.display=
+        "none";
+
+
+    q.options.forEach((text,index)=>{
+
+        const b=document.createElement("button");
+
+        b.className="option";
+
+        b.textContent=text;
+
+        b.onclick=()=>answerQuestion(index,b);
+
+        options.appendChild(b);
+
+    });
+
+}
+
+
+function answerQuestion(index,button){
+
+    const q=questions[currentQuestion];
+
+    const feedback=document.getElementById("feedback");
+
+    if(index===q.correct){
+
+        document.querySelectorAll(".option")
+            .forEach(b=>b.disabled=true);
+
+        button.classList.add("correct");
+
+        addScore(10);
+        addStar();
+
+        feedback.className="feedback show good";
+
+        feedback.innerHTML=
+            "🌟 أحسنت! إجابة صحيحة.<br>💡 "+
+            q.explanation;
+
+        document.getElementById("nextQuestion").style.display=
+            "inline-block";
+
+    }else{
+
+        button.classList.add("wrong");
+
+        feedback.className="feedback show hint";
+
+        feedback.innerHTML=
+            "💡 حاول مرة أخرى.<br>"+
+            "تذكّر: <strong>ابحث أولًا عن الكلمة التي تبدأ بها الجملة.</strong>";
+
+    }
+
+}
+
+
+function nextQuestion(){
+
+    currentQuestion++;
+
+    if(currentQuestion<questions.length){
+
+        renderQuestion();
+
+    }else{
+
+        setupDrag();
+
+        show("drag");
+
+        progress(42);
+
+    }
+
+}
+
+
+/* =====================================================
+   DRAG SENTENCES
+===================================================== */
+
+const sentences=[
+
+    {
+        text:"كَتَبَ التِّلْمِيذُ.",
+        type:"verbal"
+    },
+
+    {
+        text:"الشَّمْسُ مُشْرِقَةٌ.",
+        type:"nominal"
+    },
+
+    {
+        text:"جَرَى الطِّفْلُ.",
+        type:"verbal"
+    },
+
+    {
+        text:"الْحَدِيقَةُ جَمِيلَةٌ.",
+        type:"nominal"
+    },
+
+    {
+        text:"قَرَأَتْ سَلْمَى القِصَّةَ.",
+        type:"verbal"
+    },
+
+    {
+        text:"الطَّائِرُ فَوْقَ الشَّجَرَةِ.",
+        type:"nominal"
+    }
+
+];
+
+
+function setupDrag(){
+
+    const bank=document.getElementById("sentenceBank");
+
+    bank.innerHTML="";
+
+    sentences.forEach((item,index)=>{
+
+        const div=document.createElement("div");
+
+        div.className="drag-word";
+
+        div.textContent=item.text;
+
+        div.draggable=true;
+
+        div.dataset.type=item.type;
+
+        div.dataset.index=index;
+
+        div.addEventListener("dragstart",e=>{
+
+            e.dataTransfer.setData("index",index);
+
+        });
+
+        bank.appendChild(div);
+
+    });
+
+}
+
+
+function allowDrop(e){
+
+    e.preventDefault();
+
+    e.currentTarget.classList.add("over");
+
+}
+
+
+document.querySelectorAll(".dropzone").forEach(zone=>{
+
+    zone.addEventListener("dragleave",()=>{
+        zone.classList.remove("over");
+    });
+
+});
+
+
+function dropSentence(e){
+
+    e.preventDefault();
+
+    const zone=e.currentTarget;
+
+    zone.classList.remove("over");
+
+    const index=e.dataTransfer.getData("index");
+
+    const word=document.querySelector(
+        `.drag-word[data-index="${index}"]`
+    );
+
+    if(!word)return;
+
+    zone.appendChild(word);
+
+}
+
+
+function checkDrag(){
+
+    let correct=0;
+
+    document.querySelectorAll(".dropzone").forEach(zone=>{
+
+        const expected=zone.dataset.type;
+
+        zone.querySelectorAll(".drag-word").forEach(word=>{
+
+            if(word.dataset.type===expected){
+                correct++;
+            }
+
+        });
+
+    });
+
+    const feedback=document.getElementById("dragFeedback");
+
+    if(correct===sentences.length){
+
+        addScore(30);
+        addStar();
+
+        feedback.className="feedback show good";
+
+        feedback.innerHTML=
+        "🎉 رائع! صنّفت جميع الجمل تصنيفًا صحيحًا.<br>"+
+        "💡 الجملة التي تبدأ بفعل جملة فعلية، والتي تبدأ باسم جملة اسمية.";
+
+        setTimeout(()=>{
+
+            setupAssociation();
+
+            show("association");
+
+            progress(58);
+
+        },1200);
+
+    }else{
+
+        feedback.className="feedback show hint";
+
+        feedback.innerHTML=
+        "🌱 وضعتَ <strong>"+correct+"</strong> جمل في أماكن صحيحة.<br>"+
+        "💡 اقرأ أول كلمة فقط: هل هي فعل أم اسم؟ ثم أعد التصنيف.";
+
+    }
+
+}
+
+
+/* =====================================================
+   ASSOCIATION
+===================================================== */
+
+let selectedVerb=null;
+let selectedSubject=null;
+let matched=[];
+
+
+function setupAssociation(){
+
+    selectedVerb=null;
+    selectedSubject=null;
+    matched=[];
+
+    document.querySelectorAll(".assoc").forEach(x=>{
+        x.classList.remove("selected","done");
+    });
+
+}
+
+
+function selectVerb(el){
+
+    if(el.classList.contains("done"))return;
+
+    document.querySelectorAll("#verbs .assoc")
+        .forEach(x=>x.classList.remove("selected"));
+
+    el.classList.add("selected");
+
+    selectedVerb=el;
+
+    tryAssociation();
+
+}
+
+
+function selectSubject(el){
+
+    if(el.classList.contains("done"))return;
+
+    document.querySelectorAll("#subjects .assoc")
+        .forEach(x=>x.classList.remove("selected"));
+
+    el.classList.add("selected");
+
+    selectedSubject=el;
+
+    tryAssociation();
+
+}
+
+
+function tryAssociation(){
+
+    if(!selectedVerb||!selectedSubject)return;
+
+    const feedback=document.getElementById("associationFeedback");
+
+    if(selectedVerb.dataset.id===selectedSubject.dataset.id){
+
+        selectedVerb.classList.remove("selected");
+        selectedSubject.classList.remove("selected");
+
+        selectedVerb.classList.add("done");
+        selectedSubject.classList.add("done");
+
+        matched.push(selectedVerb.dataset.id);
+
+        feedback.className="feedback show good";
+
+        feedback.innerHTML=
+            "✨ ممتاز! لقد وجدت من قام بالفعل.";
+
+        selectedVerb=null;
+        selectedSubject=null;
+
+    }else{
+
+        feedback.className="feedback show hint";
+
+        feedback.innerHTML=
+            "💡 اسأل: <strong>مَن قام بهذا الفعل؟</strong> ثم اختر الإجابة المناسبة.";
+
+        setTimeout(()=>{
+
+            document.querySelectorAll(".assoc")
+                .forEach(x=>x.classList.remove("selected"));
+
+            selectedVerb=null;
+            selectedSubject=null;
+
+        },900);
+
+    }
+
+}
+
+
+function checkAssociation(){
+
+    const feedback=document.getElementById("associationFeedback");
+
+    if(matched.length===4){
+
+        addScore(30);
+        addStar();
+
+        feedback.className="feedback show good";
+
+        feedback.innerHTML=
+            "🏆 رائع! نجحت في اكتشاف الفاعل في جميع الأمثلة.";
+
+        setTimeout(()=>{
+
+            currentSubject=0;
+
+            renderSubjectQuestion();
+
+            show("findSubject");
+
+            progress(70);
+
+        },1000);
+
+    }else{
+
+        feedback.className="feedback show hint";
+
+        feedback.innerHTML=
+            "🌱 أكمل جميع الروابط، ثم اضغط تحقّق.";
+
+    }
+
+}
+
+
+/* =====================================================
+   FIND SUBJECT
+===================================================== */
+
+const subjectQuestions=[
+
+{
+    sentence:"كَتَبَ التِّلْمِيذُ الدرسَ.",
+    words:["كَتَبَ","التِّلْمِيذُ","الدرسَ"],
+    correct:1,
+    explanation:
+    "نسأل: مَن كتب؟ الجواب: التلميذُ، لذلك فهو الفاعل."
+},
+
+{
+    sentence:"زَرَعَ الفَلَّاحُ الشَّجَرَةَ.",
+    words:["زَرَعَ","الفَلَّاحُ","الشَّجَرَةَ"],
+    correct:1,
+    explanation:
+    "نسأل: مَن زرع؟ الفلاحُ هو الذي قام بالفعل، إذن هو الفاعل."
+},
+
+{
+    sentence:"رَسَمَتْ سَلْمَى زهرةً.",
+    words:["رَسَمَتْ","سَلْمَى","زهرةً"],
+    correct:1,
+    explanation:
+    "نسأل: مَن رسمت؟ سلمى، لذلك فهي الفاعل."
+},
+
+{
+    sentence:"لَعِبَ الأطفالُ في الساحةِ.",
+    words:["لَعِبَ","الأطفالُ","الساحةِ"],
+    correct:1,
+    explanation:
+    "الأطفالُ هم الذين قاموا باللعب، لذلك هم الفاعل."
+}
+
+];
+
+
+function renderSubjectQuestion(){
+
+    const q=subjectQuestions[currentSubject];
+
+    const area=document.getElementById("subjectQuestion");
+
+    area.innerHTML=`
+
+        <div class="word-analysis">
+
+            <div class="analysis-sentence">
+                ${q.sentence}
+            </div>
+
+            <p style="font-size:19px">
+                اضغط على الفاعل:
+            </p>
+
+            <div class="word-buttons">
+
+                ${q.words.map((w,i)=>`
+
+                    <button
+                        class="word-button"
+                        onclick="answerSubject(${i},this)">
+
+                        ${w}
+
+                    </button>
+
+                `).join("")}
+
+            </div>
+
+        </div>
+
+    `;
+
+    document.getElementById("subjectFeedback").className=
+        "feedback";
+
+    document.getElementById("nextSubject").style.display=
+        "none";
+
+}
+
+
+function answerSubject(index,button){
+
+    const q=subjectQuestions[currentSubject];
+
+    const feedback=document.getElementById("subjectFeedback");
+
+    if(index===q.correct){
+
+        document.querySelectorAll(".word-button")
+            .forEach(b=>b.disabled=true);
+
+        button.classList.add("selected");
+
+        addScore(15);
+        addStar();
+
+        feedback.className="feedback show good";
+
+        feedback.innerHTML=
+            "🌟 أحسنت! لقد حددت الفاعل.<br>💡 "+
+            q.explanation;
+
+        document.getElementById("nextSubject").style.display=
+            "inline-block";
+
+    }else{
+
+        feedback.className="feedback show hint";
+
+        feedback.innerHTML=
+            "💡 ابحث عمّن قام بالفعل.<br>"+
+            "مثلاً: <strong>مَن كتب؟ مَن زرع؟ مَن لعب؟</strong>";
+
+    }
+
+}
+
+
+function nextSubjectQuestion(){
+
+    currentSubject++;
+
+    if(currentSubject<subjectQuestions.length){
+
+        renderSubjectQuestion();
+
+    }else{
+
+        currentMission=0;
+
+        renderMission();
+
+        show("mission");
+
+        progress(84);
+
+    }
+
+}
+
+
+/* =====================================================
+   FINAL MISSION
+===================================================== */
+
+const missions=[
+
+{
+    sentence:"قَرَأَتْ مريمُ القِصَّةَ.",
+    type:"فعلية",
+    subject:"مريمُ",
+    explanation:
+    "الجملة بدأت بالفعل «قَرَأَتْ»، فهي جملة فعلية، ومريمُ هي التي قامت بالقراءة، فهي الفاعل."
+},
+
+{
+    sentence:"يَجْرِي الطِّفْلُ في الساحةِ.",
+    type:"فعلية",
+    subject:"الطِّفْلُ",
+    explanation:
+    "الجملة بدأت بالفعل «يَجْرِي»، والطفلُ هو الذي يجري، لذلك فهو الفاعل."
+},
+
+{
+    sentence:"كَتَبَ التِّلْمِيذُ واجبَهُ.",
+    type:"فعلية",
+    subject:"التِّلْمِيذُ",
+    explanation:
+    "الجملة بدأت بالفعل «كَتَبَ»، والتلميذُ هو الذي قام بالكتابة، لذلك فهو الفاعل."
+},
+
+{
+    sentence:"زَرَعَ الفَلَّاحُ الزهورَ.",
+    type:"فعلية",
+    subject:"الفَلَّاحُ",
+    explanation:
+    "الجملة بدأت بالفعل «زَرَعَ»، والفلاحُ هو الذي قام بالزراعة، فهو الفاعل."
+}
+
+];
+
+
+function renderMission(){
+
+    const m=missions[currentMission];
+
+    const area=document.getElementById("missionArea");
+
+    area.innerHTML=`
+
+        <div class="mission-box">
+
+            <div class="mission-sentence">
+                ${m.sentence}
+            </div>
+
+            <p style="font-size:19px">
+                أولًا: ما نوع الجملة؟
+            </p>
+
+            <div class="role-options">
+
+                <button
+                    class="role"
+                    onclick="missionType('فعلية')">
+                    🏃 جملة فعلية
+                </button>
+
+                <button
+                    class="role"
+                    onclick="missionType('اسمية')">
+                    🏠 جملة اسمية
+                </button>
+
+            </div>
+
+            <div id="subjectMission"
+                 style="display:none;margin-top:25px">
+
+                <p style="font-size:19px">
+                    أحسنت! الآن: مَن الفاعل؟
+                </p>
+
+                <button
+                    class="role"
+                    onclick="missionSubject()">
+                    ${m.subject}
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+    document.getElementById("missionFeedback").className=
+        "feedback";
+
+    document.getElementById("nextMission").style.display=
+        "none";
+
+}
+
+
+function missionType(type){
+
+    const m=missions[currentMission];
+
+    const feedback=document.getElementById("missionFeedback");
+
+    if(type===m.type){
+
+        addScore(10);
+
+        feedback.className="feedback show good";
+
+        feedback.innerHTML=
+            "🌟 أحسنت! هذه جملة فعلية لأنها بدأت بفعل.<br>"+
+            "والآن اكتشف الفاعل.";
+
+        document.getElementById("subjectMission").style.display=
+            "block";
+
+    }else{
+
+        feedback.className="feedback show hint";
+
+        feedback.innerHTML=
+            "💡 انظر إلى الكلمة الأولى: هل هي فعل أم اسم؟<br>"+
+            "الجملة الفعلية تبدأ بفعل.";
+
+    }
+
+}
+
+
+function missionSubject(){
+
+    const m=missions[currentMission];
+
+    const feedback=document.getElementById("missionFeedback");
+
+    addScore(20);
+    addStar();
+
+    feedback.className="feedback show good";
+
+    feedback.innerHTML=
+        "🏆 ممتاز! الفاعل هو: <strong>"+m.subject+
+        "</strong><br>💡 "+m.explanation;
+
+    document.getElementById("nextMission").style.display=
+        "inline-block";
+
+}
+
+
+function nextMission(){
+
+    currentMission++;
+
+    if(currentMission<missions.length){
+
+        renderMission();
+
+    }else{
+
+        progress(100);
+
+        showFinal();
+
+    }
+
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+function showFinal(){
+
+    document.getElementById("finalScore").textContent=score;
+
+    let starsText;
+
+    if(score>=220){
+
+        starsText="⭐⭐⭐⭐⭐";
+
+    }else if(score>=180){
+
+        starsText="⭐⭐⭐⭐";
+
+    }else if(score>=130){
+
+        starsText="⭐⭐⭐";
+
+    }else{
+
+        starsText="⭐⭐";
+
+    }
+
+    document.getElementById("finalStars").textContent=
+        starsText;
+
+    show("final");
+
+    launchConfetti();
+
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function launchConfetti(){
+
+    const icons=["⭐","✨","🎉","💙","💜","🌟"];
+
+    for(let i=0;i<45;i++){
+
+        const c=document.createElement("div");
+
+        c.className="confetti";
+
+        c.textContent=
+            icons[Math.floor(Math.random()*icons.length)];
+
+        c.style.left=
+            Math.random()*100+"vw";
+
+        c.style.fontSize=
+            (12+Math.random()*16)+"px";
+
+        c.style.animationDelay=
+            Math.random()*1.5+"s";
+
+        document.body.appendChild(c);
+
+        setTimeout(()=>{
+            c.remove();
+        },4000);
+
+    }
+
+}
+
+
+/* =====================================================
+   RESTART
+===================================================== */
+
+function restartGame(){
+
+    score=0;
+    stars=0;
+    currentQuestion=0;
+    currentSubject=0;
+    currentMission=0;
+
+    updateStats();
+
+    progress(0);
+
+    setupDrag();
+    setupAssociation();
+
+    show("home");
+
+}
+
+</script>
+
+
+</body></html>
